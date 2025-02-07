@@ -112,7 +112,7 @@ public class Dialogue : MonoBehaviour
     public void Option3()
     {
         StopAllCoroutines();
-        sentence = "It’s not what it looks like, Someone put that there.";
+        sentence = "It’s not what it looks like, someone put that there.";
         hasSpoke = true;
         _anim.SetBool("hasTalked", false); // set animation
         selectedOption = 3;
@@ -123,7 +123,7 @@ public class Dialogue : MonoBehaviour
     {
         UI.fillAmount += .10f; // Add Sus
         StopAllCoroutines();
-        sentence = "Okay fine... But I needed the money for my family. If you really want to fine the culprit it's Balena Trade! They usually trade whale parts at the pier during the night.";
+        sentence = "Okay fine... But I needed the money for my family. If you really want to find the culprit it's Balena Trade! They usually trade whale parts at the pier during the night.";
         hasSpoke = false;
         _anim.SetBool("hasTalked", false); // set animation
         selectedOption = 0;
