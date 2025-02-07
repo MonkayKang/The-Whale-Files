@@ -6,6 +6,15 @@ public class Drag : MonoBehaviour
 {
     Vector3 mousePositionOffeset; // Find the mouse
 
+    public bool isNpc;
+    public bool isClue;
+
+    public GameObject dialogue;
+    public GameObject dialogue1;
+
+    public GameObject clue1;
+    public GameObject clue1CON;
+
     private Vector3 GetMouseWorldPosition()
     {
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -25,12 +34,32 @@ public class Drag : MonoBehaviour
     private void OnMouseDown()
     {
         // Capture Mouse Offset
-        mousePositionOffeset = gameObject.transform.position - GetMouseWorldPosition();
+        if (!isNpc)
+        {
+            mousePositionOffeset = gameObject.transform.position - GetMouseWorldPosition();
+        }
+
+        if (isNpc)
+        {
+            dialogue.SetActive(true);
+            dialogue1.SetActive(true);
+        }
+
+        if (isClue)
+        {
+            Dialogue.hasClue = true;
+            clue1.SetActive(false); // Reveal Clue
+            // Possible Addition Code
+        }
     }
 
     private void OnMouseDrag()
     {
-        // Capture Mouse Offset
-        transform.position = GetMouseWorldPosition() + mousePositionOffeset;
+        if (!isNpc)
+        {
+            // Capture Mouse Offset
+            transform.position = GetMouseWorldPosition() + mousePositionOffeset;
+        }
     }
+
 }
