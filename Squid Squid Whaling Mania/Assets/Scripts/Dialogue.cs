@@ -91,7 +91,7 @@ public class Dialogue : MonoBehaviour
     public void Option2()
     {
         StopAllCoroutines();
-        sentence = "No?! That’s illegal here, If I did I would have reported it to a nearby authority.";
+        sentence = "No?! That’s illegal here, If I saw anything I would have reported it to nearby authorities.";
         hasSpoke = true;
         _anim.SetBool("hasTalked", false); // set animation
         selectedOption = 2;
@@ -101,7 +101,7 @@ public class Dialogue : MonoBehaviour
     public void Option2CON()
     {
         StopAllCoroutines();
-        sentence = "NO! How dare you accuse me of that! Leave my stall now sir! + SUS";
+        sentence = "NO! How dare you accuse me of that! Leave my stall NOW! + SUS";
         UI.fillAmount += .10f; // Add Sus
         hasSpoke = false;
         _anim.SetBool("hasTalked", false); // set animation
@@ -112,7 +112,7 @@ public class Dialogue : MonoBehaviour
     public void Option3()
     {
         StopAllCoroutines();
-        sentence = "It’s not what it looks like, it's not mine.";
+        sentence = "It’s not what it looks like, Someone put that there.";
         hasSpoke = true;
         _anim.SetBool("hasTalked", false); // set animation
         selectedOption = 3;
@@ -123,7 +123,7 @@ public class Dialogue : MonoBehaviour
     {
         UI.fillAmount += .10f; // Add Sus
         StopAllCoroutines();
-        sentence = "Fine, it’s mine. But I needed the money for my family. It's not mine, it's Balena Trade! They usually trade whale parts at the pier during the night.";
+        sentence = "Okay fine... But I needed the money for my family. If you really want to fine the culprit it's Balena Trade! They usually trade whale parts at the pier during the night.";
         hasSpoke = false;
         _anim.SetBool("hasTalked", false); // set animation
         selectedOption = 0;
