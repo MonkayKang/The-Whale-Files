@@ -102,6 +102,7 @@ public class Dialogue : MonoBehaviour
     {
         StopAllCoroutines();
         sentence = "NO! How dare you accuse me of that! Leave my stall now sir! + SUS";
+        UI.fillAmount += .10f; // Add Sus
         hasSpoke = false;
         _anim.SetBool("hasTalked", false); // set animation
         selectedOption = 0;
@@ -120,6 +121,7 @@ public class Dialogue : MonoBehaviour
 
     public void Option3CON()
     {
+        UI.fillAmount += .10f; // Add Sus
         StopAllCoroutines();
         sentence = "Fine, it’s mine. But I needed the money for my family. It's not mine, it's Balena Trade! They usually trade whale parts at the pier during the night.";
         hasSpoke = false;

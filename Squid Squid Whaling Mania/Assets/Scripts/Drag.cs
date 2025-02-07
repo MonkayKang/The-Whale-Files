@@ -8,6 +8,7 @@ public class Drag : MonoBehaviour
 
     public bool isNpc;
     public bool isClue;
+    public bool isEaster;
 
     public GameObject dialogue;
     public GameObject dialogue1;
@@ -60,6 +61,20 @@ public class Drag : MonoBehaviour
             // Capture Mouse Offset
             transform.position = GetMouseWorldPosition() + mousePositionOffeset;
         }
+
+        if (isEaster)
+        {
+            StopAllCoroutines();
+            clue1.SetActive(true);
+            StartCoroutine(JumpScare());
+        }
+    }
+
+
+    IEnumerator JumpScare() // Secret
+    {
+        yield return new WaitForSeconds(1f); // delay before closing
+        clue1.SetActive(false);
     }
 
 }
