@@ -134,7 +134,6 @@ public class Dialogue : MonoBehaviour
     {
 
         yield return StartCoroutine(TypeSentence()); // type response
-        yield return new WaitForSeconds(1f); // delay before closing
 
         Panel.SetActive(false);
         Panel2.SetActive(false);
