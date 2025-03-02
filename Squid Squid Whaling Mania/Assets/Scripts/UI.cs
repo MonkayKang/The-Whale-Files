@@ -11,7 +11,7 @@ public class UI : MonoBehaviour
     public static float fillAmount = 0f;  // The fill amount (0 to 1)
     public GameObject Map;
     private bool isPressed = false;
-
+    public GameObject Inventory;
     void Start()
     {
         targetImage.fillAmount = fillAmount;
@@ -25,7 +25,9 @@ public class UI : MonoBehaviour
         {
             isPressed = !isPressed; // Toggle the state based on if the player has the mapopen or not
             Map.SetActive(isPressed);
+            Inventory.SetActive(false);
         }
+        
     }
 
     public void BeachSelect()
@@ -40,5 +42,11 @@ public class UI : MonoBehaviour
     public void PeirSelect()
     {
         SceneManager.LoadScene("Pier");
+    }
+
+    public void ShowEvidence()
+    {
+        Inventory.SetActive(true);
+
     }
 }
