@@ -32,4 +32,20 @@ public class Movement : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall")) // Prevents Players From Phasing Through
+        {
+            speed = -0.1f;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall")) // Prevents Players From Phasing Through
+        {
+            speed = 5f;
+        }
+    }
 }

@@ -37,11 +37,11 @@ public class UI : MonoBehaviour
 
     public void LightSelect()
     {
-        SceneManager.LoadScene("LightHouse");
+        SceneManager.LoadScene("Pier"); // THE CODE IS IS MESSED UP AND THE NAMING IS OFF
     }
     public void PeirSelect()
     {
-        SceneManager.LoadScene("Pier");
+        SceneManager.LoadScene("Hideout"); // THESE ARE THE CORRECT NAMES
     }
 
     public void ShowEvidence()
