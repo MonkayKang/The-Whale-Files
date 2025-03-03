@@ -37,7 +37,7 @@ public class Movement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Wall")) // Prevents Players From Phasing Through
         {
-            speed = -0.1f;
+            speed = -0.2f;
         }
     }
 
