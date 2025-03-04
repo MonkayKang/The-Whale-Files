@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 771e1c451e54567458016b84643ce8f7, type: 3}
-  m_Name: Clue1
+  m_Name: Clue2
   m_EditorClassIdentifier: 
-  clueName: Whale Meat Sign
-  description: This was hidden under another sign, trying to mask the real meat for
-    sale.
-  image: {fileID: 21300000, guid: d2efe41acf011a44db347a3bd3556758, type: 3}
-  evidenceValue: 5
+  clueID: Clue2
+  clueName: Test
+  description: Test Text
+  image: {fileID: 21300000, guid: b6688929730572743aa0610743fb3b27, type: 3}
+  evidenceValue: 2
