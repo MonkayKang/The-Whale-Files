@@ -16,4 +16,4 @@ MonoBehaviour:
   clueName: Test2
   description: Noah what are you doing here?
   image: {fileID: 21300000, guid: 30dabc04bdaedeb4fbb1c13b33279a84, type: 3}
-  evidenceValue: 3
+  evidenceValue: 50

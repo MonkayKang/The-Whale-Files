@@ -188,8 +188,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -434,8 +434,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -638,17 +638,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164048633}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.59812546, y: 1.0637436, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 82646922}
-  m_Father: {fileID: 1715297596}
+  m_Father: {fileID: 653488027}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -375, y: -28}
+  m_AnchoredPosition: {x: -226.68956, y: 259.55344}
   m_SizeDelta: {x: 263.6403, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &164048635
@@ -1676,6 +1676,7 @@ RectTransform:
   - {fileID: 537657416}
   - {fileID: 1460722251}
   - {fileID: 195923717}
+  - {fileID: 164048634}
   m_Father: {fileID: 1715297596}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2208,8 +2209,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2342,8 +2343,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2985,8 +2986,8 @@ RectTransform:
   - {fileID: 1051462501}
   - {fileID: 1814388820}
   - {fileID: 40106418}
-  - {fileID: 1715297596}
   - {fileID: 308158441}
+  - {fileID: 1715297596}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4436,7 +4437,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1584635308
 Transform:
   m_ObjectHideFlags: 0
@@ -4615,7 +4616,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 653488027}
-  - {fileID: 164048634}
   m_Father: {fileID: 923676777}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4669,6 +4669,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c78a17d64b67df4aa94c860b408ead0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DialoguePanel: {fileID: 1715297595}
+  Button1: {fileID: 317323750}
+  Button2: {fileID: 537657415}
+  Button3: {fileID: 1460722250}
+  delay: 0.1
+  DialogueText: {fileID: 1260090545}
+  Button1Text: {fileID: 787106683}
+  Button2Text: {fileID: 717116055}
+  Button3Text: {fileID: 12317052}
+  DialogueSetence: Hi, my is noah. I got a pretty rad haircut
+  sentence1: erm Hi
+  sentence2: WASSSUPPPP
+  sentence3: How much wood could a wood chuck---
 --- !u!61 &1733616719
 BoxCollider2D:
   m_ObjectHideFlags: 0
