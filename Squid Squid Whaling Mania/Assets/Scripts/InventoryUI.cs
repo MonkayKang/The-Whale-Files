@@ -44,9 +44,11 @@ public class InventoryUI : MonoBehaviour
 
     private void ClearInventory()
     {
+        if (inventoryContent == null) return; // Prevent error if it's destroyed
+
         foreach (Transform child in inventoryContent)
         {
-            Destroy(child.gameObject);
+            if (child != null) Destroy(child.gameObject);
         }
     }
 
