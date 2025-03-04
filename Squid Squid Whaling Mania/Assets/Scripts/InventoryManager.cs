@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -60,7 +61,7 @@ public class InventoryManager : MonoBehaviour
             onEvidenceUpdated?.Invoke();
             onInventoryUpdated?.Invoke();
 
-            if (currentEvidence >= 10)
+            if (currentEvidence >= maxEvidence)
             {
                 LoadNextScene();
             }
@@ -126,7 +127,18 @@ public class InventoryManager : MonoBehaviour
 
     public void LoadNextScene()
     {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
 
+        // Ensure there's a next scene before loading
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            Debug.Log("No more scenes to load!"); // Handle when at the last scene
+        }
     }
 }
 
