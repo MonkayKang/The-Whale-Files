@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
+
 public class InventoryUI : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject cluePrefab;
     [SerializeField] private Transform inventoryContent;
-    [SerializeField] private Slider evidenceMeter;
+    [SerializeField] private Image evidenceFillImage;
     [SerializeField] private GameObject hoverPanel;
     [SerializeField] private TextMeshProUGUI hoverText;
     [SerializeField] private Vector2 hoverOffset = new Vector2(0, 50);
@@ -17,8 +18,15 @@ public class InventoryUI : MonoBehaviour
     private void Start()
     {
         ValidateReferences();
+
+        // Subscribe to updates
         InventoryManager.Instance.onInventoryUpdated += UpdateInventory;
         InventoryManager.Instance.onEvidenceUpdated += UpdateEvidenceMeter;
+
+        // Force update UI on scene load
+        UpdateInventory();
+        UpdateEvidenceMeter();
+
         hoverPanel.SetActive(false);
     }
 
@@ -62,14 +70,12 @@ public class InventoryUI : MonoBehaviour
     {
         EventTrigger trigger = target.AddComponent<EventTrigger>();
 
-        // Hover Enter
         AddTriggerEvent(trigger, EventTriggerType.PointerEnter, () => {
             hoverPanel.SetActive(true);
             hoverText.text = description;
             PositionHoverPanel(target.GetComponent<RectTransform>());
         });
 
-        // Hover Exit
         AddTriggerEvent(trigger, EventTriggerType.PointerExit, () => {
             hoverPanel.SetActive(false);
         });
@@ -97,6 +103,6 @@ public class InventoryUI : MonoBehaviour
 
     private void UpdateEvidenceMeter()
     {
-        evidenceMeter.value = InventoryManager.Instance.GetEvidenceProgress();
+        evidenceFillImage.fillAmount = InventoryManager.Instance.GetEvidenceProgress();
     }
 }

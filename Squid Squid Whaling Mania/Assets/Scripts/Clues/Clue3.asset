@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771e1c451e54567458016b84643ce8f7, type: 3}
   m_Name: Clue3
   m_EditorClassIdentifier: 
+  clueID: Clue3
   clueName: Test2
   description: Noah what are you doing here?
   image: {fileID: 21300000, guid: 30dabc04bdaedeb4fbb1c13b33279a84, type: 3}
