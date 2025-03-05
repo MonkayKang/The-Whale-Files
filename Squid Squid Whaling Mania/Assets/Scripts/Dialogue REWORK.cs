@@ -227,7 +227,7 @@ public class DialogueREWORK : MonoBehaviour
         else if (TimesSpoken2 == 2)
         {
             DialogueSetence = "I don’t know who you are, but you sound way too okay with illegal stuff. I think we’re done talking."; // ADD SUS 4 DYLAN DONT FORGET
-            TimesSpoken = 0;
+            TimesSpoken2 = 0;
             StartCoroutine(EndDialogue());
             return;
         }
