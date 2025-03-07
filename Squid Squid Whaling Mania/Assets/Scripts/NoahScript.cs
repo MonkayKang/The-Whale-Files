@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class DialogueREWORK : MonoBehaviour
+public class NoahScript : MonoBehaviour
 {
     public GameObject DialoguePanel;
     public GameObject Button1;
@@ -47,12 +45,12 @@ public class DialogueREWORK : MonoBehaviour
     private void OnMouseDown()
     {
         StopAllCoroutines(); // Whoops The words keep stacking
-        DialogueSetence = "Oh! Hi! Are you here to help track whale patterns? And did you hear about the whaling ships that Greenpeace exposed last month? Super shady stuff!";
+        DialogueSetence = "Hello there! Are you interested in helping protect whales and supporting stronger laws to keep them safe?";
         DialoguePanel.SetActive(true);
         Button1.SetActive(false);
         Button2.SetActive(false);
         Button3.SetActive(false);
-        box2d.enabled = false; 
+        box2d.enabled = false;
         StartCoroutine(TypeSentence());
     }
 
@@ -132,9 +130,9 @@ public class DialogueREWORK : MonoBehaviour
     void SetButtonActive()
     {
 
-           Button1.SetActive(true);
-           Button2.SetActive(true);
-           Button3.SetActive(true);
+        Button1.SetActive(true);
+        Button2.SetActive(true);
+        Button3.SetActive(true);
 
     }
 
@@ -153,19 +151,50 @@ public class DialogueREWORK : MonoBehaviour
 
         if (TimesSpoken == 0)
         {
-            DialogueSetence = "Okay, so check this out! Greenpeace has been following ships that claim they’re doing ‘scientific research’ but are really hunting whales illegally. They turn off their trackers, change ship names, and move in restricted waters!";
-            sentence1 = "Wait, they actually turn off their trackers? Isn’t that illegal?";
+            DialogueSetence = "Governments don’t move fast, and companies sure don’t like being told what to do. We push for stricter laws through the International Whaling Commission (stands for IWC). Heard of it?";
+            sentence1 = "Yeah, they make the rules about whaling, right??";
             TimesSpoken++;
         }
         else if (TimesSpoken == 1)
         {
-            DialogueSetence = "YES! Turning off tracking signals, called Automatic Identification System (AIS) disabling, is a huge red flag! It usually means a ship doesn’t want to be found. And guess where we keep seeing them pop up? Near marine protected areas where whaling is banned.";
-            sentence1 = "So… has anyone ever been caught doing this?";
+            DialogueSetence = "Exactly! They’re supposed to enforce bans and create protected zones, but without the right pressure, those rules don’t mean much. That’s why we need more public support.";
+            sentence1 = "That’s why Greenpeace wants stricter laws?";
             TimesSpoken++;
         }
         else if (TimesSpoken == 2)
         {
-            DialogueSetence = "Yes! In 2019, Japan’s whalers were caught on camera killing minke whales in an area they swore was just ‘research.’ They denied everything! Until Greenpeace released undeniable proof to the world! That’s why exposing them is so important. If we don’t call them out, they’ll keep pretending it’s ‘legal’ when it’s not!";
+            DialogueSetence = "Right. We push to close loopholes, stop fake ‘scientific’ whaling, and protect more ocean areas.";
+            sentence1 = "Sounds like you know a lot about bending the rules.";
+            UI.fillAmount += .10f;
+            TimesSpoken++;
+        }
+        else if (TimesSpoken == 3)
+        {
+            DialogueSetence = "Rules are tricky. Some people talk about protecting whales, but behind closed doors? It’s a whole different story. That’s just how things work sometimes.";
+            sentence1 = "You mean illegal hunting? Where does it happen?";
+            TimesSpoken++;
+        }
+        else if (TimesSpoken == 4)
+        {
+            DialogueSetence = "Look, I probably shouldn’t be saying this, but if you really want to know… Some ships don’t just ‘go missing.’ They turn off their trackers. No signals, no proof. And they’re not always far away.";
+            sentence1 = "So these ships… where do they offload their cargo?";
+            TimesSpoken++;
+        }
+        else if (TimesSpoken == 5)
+        {
+            DialogueSetence = "Private docks. Hidden harbors. Sometimes, the deals don’t even happen on land, just ship to ship. No records, no trail.";
+            sentence1 = "Wait! People around here know about this?";
+            TimesSpoken++;
+        }
+        else if (TimesSpoken == 6)
+        {
+            DialogueSetence = "You’d be surprised. Some activists talk a big game but work both sides. Like (Name TBD)… guy’s got all the right connections if you catch my drift.";
+            sentence1 = "And the IWC? Can’t they track this?";
+            TimesSpoken++;
+        }
+        else if (TimesSpoken == 7)
+        {
+            DialogueSetence = "They try, but without real enforcement, it’s a losing battle. That’s why we need stronger laws, to give the IWC the power to actually shut this down. But not everyone wants that to happen… for obvious reasons.";
             TimesSpoken = 0;
             StartCoroutine(EndDialogue());
             return;
@@ -183,19 +212,19 @@ public class DialogueREWORK : MonoBehaviour
 
         if (TimesSpoken1 == 0)
         {
-            DialogueSetence = "*sides eye Leon up and down*";
-            sentence2 = "What does Greenpeace do when they find these ships?";
+            DialogueSetence = "The IWC makes the rules, like banning certain whales from being hunted and protecting parts of the ocean. But let’s be honest, not everyone listens lol.";
+            sentence2 = "Not really. What do they do?";
             TimesSpoken1++;
         }
         else if (TimesSpoken1 == 1)
         {
-            DialogueSetence = "We document everything! High-resolution images, videos, GPS logs. We use drones and satellite tracking to catch them in the act. Then we expose them to the public nand pressure governments to seize their illegal cargo!";
-            sentence2 = "If it’s illegal, why isn’t it stopping?";
+            DialogueSetence = "They set the laws to stop whaling, but let’s be honest… not everyone listens. Some countries claim to hunt for 'scientific research,' but we both know what happens to those whales.";
+            sentence2 = "So what happens when people break the rules?";
             TimesSpoken1++;
         }
         else if (TimesSpoken1 == 2)
         {
-            DialogueSetence = "Because money. Some governments don’t want to enforce the bans because whaling companies fund their economy. Plus, there’s a black market for whale meat. As long as people keep buying, the hunting won’t stop.";
+            DialogueSetence = "*(Noah gets all sus like.)* Some people just ‘ignore’ the rules. And let’s be real, there’s a lot of money in this industry. When money talks, laws don’t always matter.";
             TimesSpoken1 = 0;
             StartCoroutine(EndDialogue());
             return;
@@ -213,20 +242,14 @@ public class DialogueREWORK : MonoBehaviour
 
         if (TimesSpoken2 == 0)
         {
-            DialogueSetence = "*gasps and looks offend well side eyeing Leon*";
-            sentence3 = "Sounds like a lot of effort just for some whales."; 
+            DialogueSetence = "It is. Governments don’t move fast, and companies sure don’t like being told what to do. We push for stricter laws through the International Whaling Commission (stands for IWC). Heard of it?";
+            sentence3 = "Do the IWC’s rules even matter?";
+            UI.fillAmount += .10f;
             TimesSpoken2++;
         }
         else if (TimesSpoken2 == 1)
         {
-            DialogueSetence = "You think it’s just whales? The whole ocean ecosystem depends on them. Remove whales, and it messes up everything, fish populations, carbon storage, you name it!";
-            sentence3 = "People get away with worse. Maybe it’s just business.";
-            TimesSpoken2++;
-        }
-        else if (TimesSpoken2 == 2)
-        {
-            UI.fillAmount += .10f; 
-            DialogueSetence = "I don’t know who you are, but you sound way too okay with illegal stuff. I think we’re done talking."; 
+            DialogueSetence = "*(Noah smiles weirdly.)* Depends. The rules matter to the people who ‘follow’ them. But some folks… well, they see laws as more of a ‘suggestion’ hehehehehehe.";
             TimesSpoken2 = 0;
             StartCoroutine(EndDialogue());
             return;

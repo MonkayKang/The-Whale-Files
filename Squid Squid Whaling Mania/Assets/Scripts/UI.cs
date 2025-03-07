@@ -49,4 +49,11 @@ public class UI : MonoBehaviour
         Inventory.SetActive(true);
 
     }
+
+    public void PRESSED()
+    {
+        isPressed = !isPressed; // Toggle the state based on if the player has the mapopen or not
+        Map.SetActive(isPressed);
+        Inventory.SetActive(false);
+    }
 }
