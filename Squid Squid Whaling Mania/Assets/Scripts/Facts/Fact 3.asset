@@ -16,5 +16,5 @@ MonoBehaviour:
   clueName: Water Bottle
   description: GreenPeace Canada supports non-invasive whale tracking and research
     to understand migration patters and ensure better protection measures.
-  image: {fileID: 21300000, guid: e5dc52bc2156dc34692db90d69c0f774, type: 3}
+  image: {fileID: 21300000, guid: 0af53c3d66845ac4bb774110b521bbd3, type: 3}
   evidenceValue: 3
