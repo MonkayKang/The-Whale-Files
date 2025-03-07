@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 771e1c451e54567458016b84643ce8f7, type: 3}
-  m_Name: Clue2
+  m_Name: Clue
   m_EditorClassIdentifier: 
-  clueID: Clue2
-  clueName: Test
-  description: Test Text
-  image: {fileID: 21300000, guid: b6688929730572743aa0610743fb3b27, type: 3}
-  evidenceValue: 10
+  clueID: Clue4
+  clueName: Clue4
+  description: Stuff
+  image: {fileID: 21300000, guid: e396d5ce0143dcb45b59fb46ee3673fd, type: 3}
+  evidenceValue: 50

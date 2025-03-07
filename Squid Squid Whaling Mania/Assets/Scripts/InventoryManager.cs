@@ -122,7 +122,7 @@ public class InventoryManager : MonoBehaviour
 
     public float GetEvidenceProgress()
     {
-        return currentEvidence / maxEvidence;
+        return currentEvidence;
     }
 
     public void LoadNextScene()
