@@ -6,15 +6,18 @@ public class Drag : MonoBehaviour
 {
     Vector3 mousePositionOffeset; // Find the mouse
 
-    public bool isNpc;
-    public bool isClue;
-    public bool isEaster;
+    public bool ispart1;
+    public bool isclose;
+    public bool isDraggable;
+    public bool isClickable;
+    public bool isDESTROY;
+    private bool isClicked;
 
-    public GameObject dialogue;
-    public GameObject dialogue1;
-
-    public GameObject clue1;
-    public GameObject clue1CON;
+    public GameObject object1;
+    public GameObject object2;
+    public GameObject object3;
+    public GameObject object4;
+    public GameObject exitbutton;
 
     private Vector3 GetMouseWorldPosition()
     {
@@ -34,47 +37,46 @@ public class Drag : MonoBehaviour
 
     private void OnMouseDown()
     {
-        // Capture Mouse Offset
-        if (!isNpc)
+        if (ispart1)
         {
-            mousePositionOffeset = gameObject.transform.position - GetMouseWorldPosition();
+            object1.SetActive(true);
+            object2.SetActive(true);
+            object3.SetActive(true);
+            object4.SetActive(true);
+            isClicked = true;
         }
 
-        if (isNpc)
+        if(isclose)
         {
-            dialogue.SetActive(true);
-            dialogue1.SetActive(true);
+            object1.SetActive(false);
+            object2.SetActive(false);
+            object3.SetActive(false);
+            object4.SetActive(false);
+            exitbutton.SetActive(false);
         }
 
-        if (isClue)
-        {
-            Dialogue.hasClue = true;
-            clue1.SetActive(false); // Reveal Clue
-            // Possible Addition Code
-        }
+        
     }
 
     private void OnMouseDrag()
     {
-        if (!isNpc)
+        if (isDraggable)
         {
             // Capture Mouse Offset
             transform.position = GetMouseWorldPosition() + mousePositionOffeset;
         }
 
-        if (isEaster)
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (isDESTROY && collision.gameObject.CompareTag("Destroyer"))
         {
-            StopAllCoroutines();
-            clue1.SetActive(true);
-            StartCoroutine(JumpScare());
+            Debug.Log("hit");
+            exitbutton.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
 
-
-    IEnumerator JumpScare() // Secret
-    {
-        yield return new WaitForSeconds(1f); // delay before closing
-        clue1.SetActive(false);
-    }
 
 }

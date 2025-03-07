@@ -4837,7 +4837,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 48049735}
   textMeshPro: {fileID: 234678771}
-  Description: Dylan Was Here
+  Description: GreenPeace Canada has long opposed commerical whaling, especially
+    in countries like Japan, Normway, and Iceland, where whaling continues despite
+    international bans
   offset: {x: 10, y: 10}
 --- !u!114 &2074792999
 MonoBehaviour:
