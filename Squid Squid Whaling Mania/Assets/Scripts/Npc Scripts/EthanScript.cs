@@ -183,29 +183,38 @@ public class EthanScript : MonoBehaviour
         Button3.SetActive(false);
         StopAllCoroutines(); // Ensure only one coroutine runs at a time
 
-        if (TimesSpoken == 0)
+        if (UI.fillAmount >= 0.50f)
         {
-            DialogueSetence = "Then pass through somewhere else. I don’t like uninvited guests.";
-            sentence1 = "Even if that means taking too much?";
-            UI.fillAmount += 0.10f;
-            TimesSpoken++;
-        }
-        else if (TimesSpoken == 1)
-        {
-            DialogueSetence = "That's the cost of doing business.";
-            sentence1 = "You’re saying people disappear?";
-            TimesSpoken++;
-        }
-        else if (TimesSpoken == 2)
-        {
-            DialogueSetence = "Let me give you some advice, curiosity is dangerous. Some questions don’t need answers.";
-            TimesSpoken = 0;
+            // If UI.fillAmount is 0.50 or higher
+            DialogueSetence = "You’ve been pretty involved in this, haven’t you? Maybe you’re starting to see how messy things really are.";
             StartCoroutine(EndDialogue());
-            return;
         }
+        else
+        {
+            if (TimesSpoken == 0)
+            {
+                DialogueSetence = "Then pass through somewhere else. I don’t like uninvited guests.";
+                sentence1 = "Even if that means taking too much?";
+                UI.fillAmount += 0.10f;
+                TimesSpoken++;
+            }
+            else if (TimesSpoken == 1)
+            {
+                DialogueSetence = "That's the cost of doing business.";
+                sentence1 = "You’re saying people disappear?";
+                TimesSpoken++;
+            }
+            else if (TimesSpoken == 2)
+            {
+                DialogueSetence = "Let me give you some advice, curiosity is dangerous. Some questions don’t need answers.";
+                TimesSpoken = 0;
+                StartCoroutine(EndDialogue());
+                return;
+            }
 
-        DialogueText.text = ""; // Reset before typing
-        StartCoroutine(TypeSentence1());
+            DialogueText.text = ""; // Reset before typing
+            StartCoroutine(TypeSentence1());
+        }
     }
 
     public void Option2()
@@ -247,29 +256,38 @@ public class EthanScript : MonoBehaviour
         Button2.SetActive(false);
         StopAllCoroutines(); // Ensure only one coroutine runs at a time
 
-        if (TimesSpoken2 == 0)
+        if (UI.fillAmount >= 0.50f)
         {
-            DialogueSetence = "I prefer to call it supply and demand. People want fish, I make sure they get it. Simple.";
-            sentence3 = "So you control who eats and who doesn’t?";
-            TimesSpoken2++;
-        }
-        else if (TimesSpoken2 == 1)
-        {
-            DialogueSetence = "Control is a strong word. I just make sure the right people stay in business. If that means some waters dry up, well… that’s the cost of doing business.";
-            sentence3 = "So you don’t worry about getting caught?";
-            UI.fillAmount += 0.10f;
-            TimesSpoken2++;
-        }
-        else if (TimesSpoken2 == 2)
-        {
-            DialogueSetence = "Let me give you some advice, curiosity is dangerous. Some questions don’t need answers.";
-            TimesSpoken2 = 0;
+            // If UI.fillAmount is 0.50 or higher
+            DialogueSetence = "You’ve been pretty involved in this, haven’t you? Maybe you’re starting to see how messy things really are.";
             StartCoroutine(EndDialogue());
-            return;
         }
+        else
+        {
 
-        DialogueText.text = ""; // Reset before typing
-        StartCoroutine(TypeSentence3());
+            if (TimesSpoken2 == 0)
+            {
+                DialogueSetence = "I prefer to call it supply and demand. People want fish, I make sure they get it. Simple.";
+                sentence3 = "So you control who eats and who doesn’t?";
+                TimesSpoken2++;
+            }
+            else if (TimesSpoken2 == 1)
+            {
+                DialogueSetence = "Control is a strong word. I just make sure the right people stay in business. If that means some waters dry up, well… that’s the cost of doing business.";
+                sentence3 = "So you don’t worry about getting caught?";
+                UI.fillAmount += 0.10f;
+                TimesSpoken2++;
+            }
+            else if (TimesSpoken2 == 2)
+            {
+                DialogueSetence = "Let me give you some advice, curiosity is dangerous. Some questions don’t need answers.";
+                TimesSpoken2 = 0;
+                StartCoroutine(EndDialogue());
+                return;
+            }
+            DialogueText.text = ""; // Reset before typing
+            StartCoroutine(TypeSentence3());
+        }
     }
 
     IEnumerator EndDialogue()

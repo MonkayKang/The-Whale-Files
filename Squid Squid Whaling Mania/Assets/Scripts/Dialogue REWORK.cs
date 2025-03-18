@@ -215,28 +215,36 @@ public class DialogueREWORK : MonoBehaviour
         Button3.SetActive(false);
         StopAllCoroutines(); // Ensure only one coroutine runs at a time
 
-        if (TimesSpoken1 == 0)
+        if (UI.fillAmount >= 0.50f)
         {
-            DialogueSetence = "*sides eye Leon up and down*";
-            sentence2 = "What does Greenpeace do when they find these ships?";
-            TimesSpoken1++;
-        }
-        else if (TimesSpoken1 == 1)
-        {
-            DialogueSetence = "We document everything! High-resolution images, videos, GPS logs. We use drones and satellite tracking to catch them in the act. Then we expose them to the public nand pressure governments to seize their illegal cargo!";
-            sentence2 = "If it’s illegal, why isn’t it stopping?";
-            TimesSpoken1++;
-        }
-        else if (TimesSpoken1 == 2)
-        {
-            DialogueSetence = "Because money. Some governments don’t want to enforce the bans because whaling companies fund their economy. Plus, there’s a black market for whale meat. As long as people keep buying, the hunting won’t stop.";
-            TimesSpoken1 = 0;
+            // If UI.fillAmount is 0.50 or higher
+            DialogueSetence = "You’ve been pretty involved in this, haven’t you? Maybe you’re starting to see how messy things really are.";
             StartCoroutine(EndDialogue());
-            return;
         }
-
-        DialogueText.text = ""; // Reset before typing
-        StartCoroutine(TypeSentence2());
+        else
+        {
+            if (TimesSpoken1 == 0)
+            {
+                DialogueSetence = "*sides eye Leon up and down*";
+                sentence2 = "What does Greenpeace do when they find these ships?";
+                TimesSpoken1++;
+            }
+            else if (TimesSpoken1 == 1)
+            {
+                DialogueSetence = "We document everything! High-resolution images, videos, GPS logs. We use drones and satellite tracking to catch them in the act. Then we expose them to the public nand pressure governments to seize their illegal cargo!";
+                sentence2 = "If it’s illegal, why isn’t it stopping?";
+                TimesSpoken1++;
+            }
+            else if (TimesSpoken1 == 2)
+            {
+                DialogueSetence = "Because money. Some governments don’t want to enforce the bans because whaling companies fund their economy. Plus, there’s a black market for whale meat. As long as people keep buying, the hunting won’t stop.";
+                TimesSpoken1 = 0;
+                StartCoroutine(EndDialogue());
+                return;
+            }
+            DialogueText.text = ""; // Reset before typing
+            StartCoroutine(TypeSentence2());
+        }
     }
 
     public void Option3()
@@ -245,29 +253,39 @@ public class DialogueREWORK : MonoBehaviour
         Button2.SetActive(false);
         StopAllCoroutines(); // Ensure only one coroutine runs at a time
 
-        if (TimesSpoken2 == 0)
+        if (UI.fillAmount >= 0.50f)
         {
-            DialogueSetence = "*gasps and looks offend well side eyeing Leon*";
-            sentence3 = "Sounds like a lot of effort just for some whales."; 
-            TimesSpoken2++;
-        }
-        else if (TimesSpoken2 == 1)
-        {
-            DialogueSetence = "You think it’s just whales? The whole ocean ecosystem depends on them. Remove whales, and it messes up everything, fish populations, carbon storage, you name it!";
-            sentence3 = "People get away with worse. Maybe it’s just business.";
-            TimesSpoken2++;
-        }
-        else if (TimesSpoken2 == 2)
-        {
-            UI.fillAmount += .10f; 
-            DialogueSetence = "I don’t know who you are, but you sound way too okay with illegal stuff. I think we’re done talking."; 
-            TimesSpoken2 = 0;
+            // If UI.fillAmount is 0.50 or higher
+            DialogueSetence = "You’ve been pretty involved in this, haven’t you? Maybe you’re starting to see how messy things really are.";
             StartCoroutine(EndDialogue());
-            return;
+        }
+        else
+        {
+            if (TimesSpoken2 == 0)
+            {
+                DialogueSetence = "*gasps and looks offend well side eyeing Leon*";
+                sentence3 = "Sounds like a lot of effort just for some whales.";
+                TimesSpoken2++;
+            }
+            else if (TimesSpoken2 == 1)
+            {
+                DialogueSetence = "You think it’s just whales? The whole ocean ecosystem depends on them. Remove whales, and it messes up everything, fish populations, carbon storage, you name it!";
+                sentence3 = "People get away with worse. Maybe it’s just business.";
+                TimesSpoken2++;
+            }
+            else if (TimesSpoken2 == 2)
+            {
+                UI.fillAmount += .10f;
+                DialogueSetence = "I don’t know who you are, but you sound way too okay with illegal stuff. I think we’re done talking.";
+                TimesSpoken2 = 0;
+                StartCoroutine(EndDialogue());
+                return;
+            }
+            DialogueText.text = ""; // Reset before typing
+            StartCoroutine(TypeSentence3());
         }
 
-        DialogueText.text = ""; // Reset before typing
-        StartCoroutine(TypeSentence3());
+
     }
 
     IEnumerator EndDialogue()
