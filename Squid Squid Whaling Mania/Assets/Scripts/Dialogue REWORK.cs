@@ -6,11 +6,16 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 public class DialogueREWORK : MonoBehaviour
-{
+{ // Sidney Dialogue
+    private bool isSkipping = false;
+
+    public GameObject SkipButton; // Prevent two skips
+
     public GameObject DialoguePanel;
     public GameObject Button1;
     public GameObject Button2;
     public GameObject Button3;
+
 
     private BoxCollider2D box2d;
 
@@ -59,7 +64,7 @@ public class DialogueREWORK : MonoBehaviour
 
     IEnumerator TypeSentence()
     {
-
+        SkipButton.SetActive(true); // No more skipping
         Button1Text.text = sentence1;
         Button2Text.text = sentence2;
         Button3Text.text = sentence3;
@@ -68,6 +73,13 @@ public class DialogueREWORK : MonoBehaviour
         DialogueText.text = "";
         foreach (char letter in DialogueSetence)
         {
+            if (isSkipping)
+            {
+                DialogueText.text = DialogueSetence; // Instantly complete text
+                isSkipping = false; // Reset flag
+                break;
+            }
+
             DialogueText.text += letter;
             yield return new WaitForSeconds(delay);
         }
@@ -77,7 +89,7 @@ public class DialogueREWORK : MonoBehaviour
 
     IEnumerator TypeSentence1()
     {
-
+        SkipButton.SetActive(true); // No more skipping
         Button1Text.text = sentence1;
         Button2Text.text = sentence2;
         Button3Text.text = sentence3;
@@ -86,6 +98,13 @@ public class DialogueREWORK : MonoBehaviour
         DialogueText.text = "";
         foreach (char letter in DialogueSetence)
         {
+            if (isSkipping)
+            {
+                DialogueText.text = DialogueSetence; // Instantly complete text
+                isSkipping = false; // Reset flag
+                break;
+            }
+
             DialogueText.text += letter;
             yield return new WaitForSeconds(delay);
         }
@@ -95,7 +114,7 @@ public class DialogueREWORK : MonoBehaviour
 
     IEnumerator TypeSentence2()
     {
-
+        SkipButton.SetActive(true); // No more skipping
         Button1Text.text = sentence1;
         Button2Text.text = sentence2;
         Button3Text.text = sentence3;
@@ -104,6 +123,13 @@ public class DialogueREWORK : MonoBehaviour
         DialogueText.text = "";
         foreach (char letter in DialogueSetence)
         {
+            if (isSkipping)
+            {
+                DialogueText.text = DialogueSetence; // Instantly complete text
+                isSkipping = false; // Reset flag
+                break;
+            }
+
             DialogueText.text += letter;
             yield return new WaitForSeconds(delay);
         }
@@ -113,7 +139,7 @@ public class DialogueREWORK : MonoBehaviour
 
     IEnumerator TypeSentence3()
     {
-
+        SkipButton.SetActive(true); // No more skipping
         Button1Text.text = sentence1;
         Button2Text.text = sentence2;
         Button3Text.text = sentence3;
@@ -122,6 +148,13 @@ public class DialogueREWORK : MonoBehaviour
         DialogueText.text = "";
         foreach (char letter in DialogueSetence)
         {
+            if (isSkipping)
+            {
+                DialogueText.text = DialogueSetence; // Instantly complete text
+                isSkipping = false; // Reset flag
+                break;
+            }
+
             DialogueText.text += letter;
             yield return new WaitForSeconds(delay);
         }
@@ -131,8 +164,8 @@ public class DialogueREWORK : MonoBehaviour
 
     void SetButtonActive()
     {
-
-           Button1.SetActive(true);
+        SkipButton.SetActive(false);
+        Button1.SetActive(true);
            Button2.SetActive(true);
            Button3.SetActive(true);
 
@@ -155,6 +188,7 @@ public class DialogueREWORK : MonoBehaviour
         {
             DialogueSetence = "Okay, so check this out! Greenpeace has been following ships that claim they’re doing ‘scientific research’ but are really hunting whales illegally. They turn off their trackers, change ship names, and move in restricted waters!";
             sentence1 = "Wait, they actually turn off their trackers? Isn’t that illegal?";
+            UI.fillAmount -= .10f;
             TimesSpoken++;
         }
         else if (TimesSpoken == 1)
@@ -243,5 +277,15 @@ public class DialogueREWORK : MonoBehaviour
         box2d.enabled = true;
         DialoguePanel.SetActive(false);
 
+    }
+
+    public void isSkip()
+    {
+        isSkipping = true;
+    }
+
+    public void Disable()
+    {
+        SkipButton.SetActive(false);
     }
 }

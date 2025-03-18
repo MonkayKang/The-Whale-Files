@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class EthanScript : MonoBehaviour
 {
+    private bool isSkipping = false;
+
     public GameObject DialoguePanel;
     public GameObject Button1;
     public GameObject Button2;
     public GameObject Button3;
+
+    public GameObject SkipButton; // Prevent two skips
 
     private BoxCollider2D box2d;
 
@@ -57,6 +61,7 @@ public class EthanScript : MonoBehaviour
 
     IEnumerator TypeSentence()
     {
+        SkipButton.SetActive(true); // No more skipping
 
         Button1Text.text = sentence1;
         Button2Text.text = sentence2;
@@ -66,6 +71,13 @@ public class EthanScript : MonoBehaviour
         DialogueText.text = "";
         foreach (char letter in DialogueSetence)
         {
+            if (isSkipping)
+            {
+                DialogueText.text = DialogueSetence; // Instantly complete text
+                isSkipping = false; // Reset flag
+                break;
+            }
+
             DialogueText.text += letter;
             yield return new WaitForSeconds(delay);
         }
@@ -84,6 +96,13 @@ public class EthanScript : MonoBehaviour
         DialogueText.text = "";
         foreach (char letter in DialogueSetence)
         {
+            if (isSkipping)
+            {
+                DialogueText.text = DialogueSetence; // Instantly complete text
+                isSkipping = false; // Reset flag
+                break;
+            }
+
             DialogueText.text += letter;
             yield return new WaitForSeconds(delay);
         }
@@ -102,6 +121,13 @@ public class EthanScript : MonoBehaviour
         DialogueText.text = "";
         foreach (char letter in DialogueSetence)
         {
+            if (isSkipping)
+            {
+                DialogueText.text = DialogueSetence; // Instantly complete text
+                isSkipping = false; // Reset flag
+                break;
+            }
+
             DialogueText.text += letter;
             yield return new WaitForSeconds(delay);
         }
@@ -120,6 +146,13 @@ public class EthanScript : MonoBehaviour
         DialogueText.text = "";
         foreach (char letter in DialogueSetence)
         {
+            if (isSkipping)
+            {
+                DialogueText.text = DialogueSetence; // Instantly complete text
+                isSkipping = false; // Reset flag
+                break;
+            }
+
             DialogueText.text += letter;
             yield return new WaitForSeconds(delay);
         }
@@ -129,7 +162,7 @@ public class EthanScript : MonoBehaviour
 
     void SetButtonActive()
     {
-
+        SkipButton.SetActive(false);
         Button1.SetActive(true);
         Button2.SetActive(true);
         Button3.SetActive(true);
@@ -145,6 +178,7 @@ public class EthanScript : MonoBehaviour
 
     public void Option1()
     {
+        SkipButton.SetActive(true); // No more skipping
         Button2.SetActive(false);
         Button3.SetActive(false);
         StopAllCoroutines(); // Ensure only one coroutine runs at a time
@@ -176,6 +210,7 @@ public class EthanScript : MonoBehaviour
 
     public void Option2()
     {
+        SkipButton.SetActive(true); // No more skipping
         Button1.SetActive(false);
         Button3.SetActive(false);
         StopAllCoroutines(); // Ensure only one coroutine runs at a time
@@ -190,6 +225,7 @@ public class EthanScript : MonoBehaviour
         {
             DialogueSetence = "I just make sure the right people stay in business. If that means some waters dry up, well… that’s the cost of doing business.";
             sentence2 = "Sounds like you’ve got everything under control.";
+            UI.fillAmount -= .10f;
             TimesSpoken1++;
         }
         else if (TimesSpoken1 == 2)
@@ -206,6 +242,7 @@ public class EthanScript : MonoBehaviour
 
     public void Option3()
     {
+        SkipButton.SetActive(true); // No more skipping
         Button1.SetActive(false);
         Button2.SetActive(false);
         StopAllCoroutines(); // Ensure only one coroutine runs at a time
@@ -225,7 +262,6 @@ public class EthanScript : MonoBehaviour
         }
         else if (TimesSpoken2 == 2)
         {
-            UI.fillAmount += .10f;
             DialogueSetence = "Let me give you some advice, curiosity is dangerous. Some questions don’t need answers.";
             TimesSpoken2 = 0;
             StartCoroutine(EndDialogue());
@@ -243,5 +279,15 @@ public class EthanScript : MonoBehaviour
         box2d.enabled = true;
         DialoguePanel.SetActive(false);
 
+    }
+
+    public void isSkip()
+    {
+        isSkipping = true;
+    }
+
+    public void Disable()
+    {
+        SkipButton.SetActive(false);
     }
 }

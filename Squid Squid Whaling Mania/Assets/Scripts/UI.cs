@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -27,6 +28,10 @@ public class UI : MonoBehaviour
             Inventory.SetActive(false);
         }
         
+        if (fillAmount < 0f)
+        {
+            fillAmount = 0f;
+        }
     }
 
     public void BeachSelect()

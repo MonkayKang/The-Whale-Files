@@ -8,7 +8,7 @@ public class FogOfWarManager : MonoBehaviour
     [SerializeField] private Image fogLocation2; // The fog overlay for second location
     [SerializeField] private Image fogLocation3; // The fog overlay for third location
     [SerializeField] private float evidenceRequiredForLocation2 = 5f;
-    [SerializeField] private float evidenceRequiredForLocation3 = 10f;
+    [SerializeField] private float evidenceRequiredForLocation3 = 1f;
 
     private void Start()
     {
@@ -35,7 +35,7 @@ public class FogOfWarManager : MonoBehaviour
 
         // If we don't meet the threshold, keep fog visible; otherwise, hide it
         bool showFogForLocation2 = currentEvidence < evidenceRequiredForLocation2;
-        bool showFogForLocation3 = currentEvidence < evidenceRequiredForLocation3;
+        bool showFogForLocation3 = currentEvidence < evidenceRequiredForLocation3; 
 
         if (fogLocation2 != null)
         {
