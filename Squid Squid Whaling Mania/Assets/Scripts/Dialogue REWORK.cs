@@ -85,6 +85,7 @@ public class DialogueREWORK : MonoBehaviour
         }
 
         SetButtonActive();
+        SkipButton.SetActive(false); // No more skipping
     }
 
     IEnumerator TypeSentence1()
@@ -110,6 +111,7 @@ public class DialogueREWORK : MonoBehaviour
         }
 
         Button1.SetActive(true);
+        SkipButton.SetActive(false); // No more skipping
     }
 
     IEnumerator TypeSentence2()
@@ -135,6 +137,7 @@ public class DialogueREWORK : MonoBehaviour
         }
 
         Button2.SetActive(true);
+        SkipButton.SetActive(false); // No more skipping
     }
 
     IEnumerator TypeSentence3()
@@ -160,6 +163,7 @@ public class DialogueREWORK : MonoBehaviour
         }
 
         Button3.SetActive(true);
+        SkipButton.SetActive(false); // No more skipping
     }
 
     void SetButtonActive()

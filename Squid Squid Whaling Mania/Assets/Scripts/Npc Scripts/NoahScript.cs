@@ -108,6 +108,7 @@ public class NoahScript : MonoBehaviour
         }
 
         Button1.SetActive(true);
+        SkipButton.SetActive(false); // No more skipping
     }
 
     IEnumerator TypeSentence2()
@@ -134,11 +135,12 @@ public class NoahScript : MonoBehaviour
         }
 
         Button2.SetActive(true);
+        SkipButton.SetActive(false); // No more skipping
     }
 
     IEnumerator TypeSentence3()
     {
-        SkipButton.SetActive(true); // No more skipping
+        SkipButton.SetActive(true);
 
         Button1Text.text = sentence1;
         Button2Text.text = sentence2;
@@ -161,6 +163,7 @@ public class NoahScript : MonoBehaviour
         }
 
         Button3.SetActive(true);
+        SkipButton.SetActive(false); // No more skipping
     }
 
     void SetButtonActive()

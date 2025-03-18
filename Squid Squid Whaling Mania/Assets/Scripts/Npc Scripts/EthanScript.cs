@@ -83,6 +83,7 @@ public class EthanScript : MonoBehaviour
         }
 
         SetButtonActive();
+        SkipButton.SetActive(false); // No more skipping
     }
 
     IEnumerator TypeSentence1()
@@ -108,6 +109,7 @@ public class EthanScript : MonoBehaviour
         }
 
         Button1.SetActive(true);
+        SkipButton.SetActive(false); // No more skipping
     }
 
     IEnumerator TypeSentence2()
@@ -133,6 +135,7 @@ public class EthanScript : MonoBehaviour
         }
 
         Button2.SetActive(true);
+        SkipButton.SetActive(false); // No more skipping
     }
 
     IEnumerator TypeSentence3()
@@ -158,6 +161,7 @@ public class EthanScript : MonoBehaviour
         }
 
         Button3.SetActive(true);
+        SkipButton.SetActive(false); // No more skipping
     }
 
     void SetButtonActive()
