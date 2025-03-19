@@ -105,6 +105,6 @@ public class InventoryUI : MonoBehaviour
 
     private void UpdateEvidenceMeter()
     {
-        evidenceFillImage.fillAmount = InventoryManager.Instance.GetEvidenceProgress();
+        evidenceFillImage.fillAmount = InventoryManager.Instance.GetEvidence();
     }
 }
