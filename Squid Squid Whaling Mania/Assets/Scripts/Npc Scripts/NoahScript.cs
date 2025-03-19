@@ -82,6 +82,7 @@ public class NoahScript : MonoBehaviour
         }
 
         SetButtonActive();
+        SkipButton.SetActive(false); // No more skipping
     }
 
     IEnumerator TypeSentence1()
