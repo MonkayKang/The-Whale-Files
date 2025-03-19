@@ -8,7 +8,7 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
 
-    [SerializeField] private float maxEvidence = 100f;
+    [SerializeField] private float maxEvidence;
     private float currentEvidence;
     public List<Clue> collectedClues = new List<Clue>();
 
@@ -123,6 +123,11 @@ public class InventoryManager : MonoBehaviour
     public float GetEvidenceProgress()
     {
         return currentEvidence;
+    }
+
+    public float GetEvidence()
+    {
+        return currentEvidence / maxEvidence;
     }
 
     public void LoadNextScene()
