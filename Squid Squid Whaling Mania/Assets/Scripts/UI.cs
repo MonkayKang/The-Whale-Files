@@ -12,6 +12,8 @@ public class UI : MonoBehaviour
     public GameObject Map;
     private bool isPressed = false;
     public GameObject Inventory;
+
+    public static int bloodSamples = 0;
     void Start()
     {
         targetImage.fillAmount = fillAmount;

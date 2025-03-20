@@ -12,12 +12,9 @@ public class Drag : MonoBehaviour
     public bool isClickable;
     public bool isDESTROY;
     private bool isClicked;
+    public bool isBlood;
 
-    public GameObject object1;
-    public GameObject object2;
-    public GameObject object3;
-    public GameObject object4;
-    public GameObject exitbutton;
+    public GameObject[] gameObjects; // makes it easier.
 
     private Vector3 GetMouseWorldPosition()
     {
@@ -32,27 +29,29 @@ public class Drag : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (UI.bloodSamples >= 3)
+        {
+            StartCoroutine(EndClue());
+        }
     }
 
     private void OnMouseDown()
     {
+
         if (ispart1)
         {
-            object1.SetActive(true);
-            object2.SetActive(true);
-            object3.SetActive(true);
-            object4.SetActive(true);
-            isClicked = true;
+            foreach (GameObject obj in gameObjects)
+            {
+                obj.SetActive(true);
+            }
         }
 
         if(isclose)
         {
-            object1.SetActive(false);
-            object2.SetActive(false);
-            object3.SetActive(false);
-            object4.SetActive(false);
-            exitbutton.SetActive(false);
+            foreach (GameObject obj in gameObjects)
+            {
+                obj.SetActive(false);
+            }
         }
 
         
@@ -70,13 +69,19 @@ public class Drag : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isDESTROY && collision.gameObject.CompareTag("Destroyer"))
+       if (isBlood && collision.gameObject.CompareTag("Destroyer"))
         {
-            Debug.Log("hit");
-            exitbutton.SetActive(true);
-            gameObject.SetActive(false);
+            UI.bloodSamples++;
+            Destroy(gameObject);
         }
     }
 
-
+    IEnumerator EndClue()
+    {
+        yield return new WaitForSeconds(1f);
+        foreach (GameObject obj in gameObjects)
+        {
+            Destroy(obj);
+        }
+    }
 }
