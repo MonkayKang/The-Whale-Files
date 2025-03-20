@@ -7983,7 +7983,6 @@ MonoBehaviour:
   - {fileID: 1507076544}
   - {fileID: 1982307562}
   - {fileID: 1390650717}
-  - {fileID: 1543613929}
 --- !u!61 &1168605899
 BoxCollider2D:
   m_ObjectHideFlags: 0
