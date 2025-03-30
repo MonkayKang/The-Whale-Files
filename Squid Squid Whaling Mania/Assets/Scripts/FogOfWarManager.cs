@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 public class FogOfWarManager : MonoBehaviour
 {
-    [SerializeField] private Image fogLocation2; // The fog overlay for second location
-    [SerializeField] private Image fogLocation3; // The fog overlay for third location
+    [SerializeField] private Image fogLocation2;
+    [SerializeField] private Image fogLocation20;// The fog overlay for second location
+    [SerializeField] private Image fogLocation3;
+    [SerializeField] private Image fogLocation30;
+    [SerializeField] private Image fogLocation31;// The fog overlay for third location
     [SerializeField] private float evidenceRequiredForLocation2 = 5f;
     [SerializeField] private float evidenceRequiredForLocation3 = 1f;
 
@@ -39,12 +42,15 @@ public class FogOfWarManager : MonoBehaviour
 
         if (fogLocation2 != null)
         {
+            fogLocation20.gameObject.SetActive(showFogForLocation2);
             fogLocation2.gameObject.SetActive(showFogForLocation2);
             Debug.Log("Beach visible");
         }
 
         if (fogLocation3 != null)
         {
+            fogLocation30.gameObject.SetActive(showFogForLocation3);
+            fogLocation31.gameObject.SetActive(showFogForLocation3);
             fogLocation3.gameObject.SetActive(showFogForLocation3);
             Debug.Log("Hideout visible");
         }
