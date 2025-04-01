@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
+[System.Serializable]
+
 public class InventoryUI : MonoBehaviour
 {
     [Header("References")]
@@ -14,6 +16,16 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private GameObject hoverPanel;
     [SerializeField] private TextMeshProUGUI hoverText;
     [SerializeField] private Vector2 hoverOffset = new Vector2(0, 50);
+    [SerializeField] private Transform factsContent;
+    [SerializeField] private Transform dialogContent;
+    [SerializeField] private Transform objectivesContent;
+    [SerializeField] private GameObject factPrefab;  
+    [SerializeField] private GameObject dialogPrefab; 
+    [SerializeField] private GameObject objectivePrefab; 
+    [SerializeField] private GameObject cluesPanel;
+    [SerializeField] private GameObject factsPanel;
+    [SerializeField] private GameObject dialogPanel;
+    [SerializeField] private GameObject objectivesPanel;
 
     private void Start()
     {
@@ -22,9 +34,14 @@ public class InventoryUI : MonoBehaviour
         // Subscribe to updates
         InventoryManager.Instance.onInventoryUpdated += UpdateInventory;
         InventoryManager.Instance.onEvidenceUpdated += UpdateEvidenceMeter;
+        InventoryManager.Instance.onInventoryUpdated += UpdateFacts;
+        InventoryManager.Instance.onInventoryUpdated += UpdateDialog;
 
         // Force update UI on scene load
         UpdateInventory();
+        UpdateFacts();
+        UpdateDialog();
+        UpdateObjectives();
         UpdateEvidenceMeter();
 
         hoverPanel.SetActive(false);
@@ -74,12 +91,15 @@ public class InventoryUI : MonoBehaviour
 
         AddTriggerEvent(trigger, EventTriggerType.PointerEnter, () => {
             hoverPanel.SetActive(true);
-            hoverText.text = description;
+            hoverText.text = description;  // Update text when hovering
             PositionHoverPanel(target.GetComponent<RectTransform>());
         });
 
         AddTriggerEvent(trigger, EventTriggerType.PointerExit, () => {
-            hoverPanel.SetActive(false);
+            if (hoverText.text == description) 
+            {
+                hoverPanel.SetActive(false);
+            }
         });
     }
 
@@ -107,4 +127,42 @@ public class InventoryUI : MonoBehaviour
     {
         evidenceFillImage.fillAmount = InventoryManager.Instance.GetEvidence();
     }
+    private void UpdateFacts()
+    {
+        foreach (Fact fact in InventoryManager.Instance.collectedFacts)
+        {
+            GameObject factEntry = Instantiate(factPrefab, factsContent);  // Instantiate prefab for each fact
+            factEntry.GetComponent<Image>().sprite = fact.image;  // Set fact image
+            AddHoverEvents(factEntry, fact.description);  // Set up hover effect with description
+        }
+    }
+    private void UpdateDialog()
+    {
+        foreach (NPCIntel dialog in InventoryManager.Instance.collectedDialogs)
+        {
+            GameObject dialogEntry = Instantiate(dialogPrefab, dialogContent);  // Instantiate prefab for each dialog
+            dialogEntry.GetComponent<Image>().sprite = dialog.npcImage;  // Set NPC image
+            AddHoverEvents(dialogEntry, dialog.dialogText);  // Set up hover effect with dialog text
+        }
+    }
+    private void UpdateObjectives()
+    {
+        foreach (string obj in InventoryManager.Instance.objectives)
+        {
+            GameObject objEntry = Instantiate(objectivePrefab, objectivesContent);
+            objEntry.GetComponent<TextMeshProUGUI>().text = obj;
+        }
+    }
+    public void ShowPanel(string panelName)
+    {
+        cluesPanel.SetActive(panelName == "Clues");
+        factsPanel.SetActive(panelName == "Facts");
+        dialogPanel.SetActive(panelName == "Dialog");
+        objectivesPanel.SetActive(panelName == "Objectives");
+
+        if (panelName == "Facts") UpdateFacts();  // Update facts
+        if (panelName == "Dialog") UpdateDialog();  // Update dialogs
+        if (panelName == "Objectives") UpdateObjectives();  // Update objectives
+    }
+   
 }
