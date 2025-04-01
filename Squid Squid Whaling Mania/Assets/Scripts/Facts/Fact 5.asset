@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 771e1c451e54567458016b84643ce8f7, type: 3}
-  m_Name: Fact 3
+  m_Name: Fact 5
   m_EditorClassIdentifier: 
   clueID: 
-  clueName: Tracker
-  description: GreenPeace Canada supports non-invasive whale tracking and research
-    to understand migration patters and ensure better protection measures.
-  image: {fileID: 21300000, guid: 0af53c3d66845ac4bb774110b521bbd3, type: 3}
+  clueName: Coral
+  description: "Coral reefs help support ocean life that whales rely on for food.
+    But pollution \r\nand warmer seas are damaging the reefs. Greenpeace is working
+    around the world to \r\nprotect them."
+  image: {fileID: 21300000, guid: d2ea51fd228b6214ab39bb4329c3426d, type: 3}
   evidenceValue: 3
