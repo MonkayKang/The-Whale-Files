@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 771e1c451e54567458016b84643ce8f7, type: 3}
-  m_Name: Fact 3
+  m_Name: Fact 7
   m_EditorClassIdentifier: 
   clueID: 
-  clueName: Tracker
-  description: GreenPeace Canada supports non-invasive whale tracking and research
-    to understand migration patters and ensure better protection measures.
-  image: {fileID: 21300000, guid: 0af53c3d66845ac4bb774110b521bbd3, type: 3}
+  clueName: Pipe
+  description: "Old sewage systems can leak dirty water into places where whales
+    live. \r\nGreenpeace Canada wants better pipes and stronger rules to keep the
+    water clean and safe \r\nfor marine life."
+  image: {fileID: 21300000, guid: c4a60ad794df4a64496818deaae0ad78, type: 3}
   evidenceValue: 3
