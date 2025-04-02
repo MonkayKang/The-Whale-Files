@@ -33,6 +33,13 @@ public class EthanScript : MonoBehaviour
     private int TimesSpoken1;
     private int TimesSpoken2;
 
+
+    // Audio 
+    public AudioSource audioSource; // Assign in Inspector
+    public AudioClip dialogueClip; // Assign the sound effect
+    public float minPitch = 0.8f;
+    public float maxPitch = 1.2f;
+
     private void Start()
     {
         box2d = GetComponent<BoxCollider2D>();
@@ -68,6 +75,9 @@ public class EthanScript : MonoBehaviour
         Button3Text.text = sentence3;
         SetButtonFalse();
 
+        float lastPlayTime = 0f;
+        float minPlayInterval = 0.15f; // Adjust this value to control the minimum time between sounds
+
         DialogueText.text = "";
         foreach (char letter in DialogueSetence)
         {
@@ -79,7 +89,16 @@ public class EthanScript : MonoBehaviour
             }
 
             DialogueText.text += letter;
-            yield return new WaitForSeconds(delay);
+
+            // Play sound only if enough time has passed since last sound
+            if (Time.time - lastPlayTime >= minPlayInterval)
+            {
+                audioSource.pitch = Random.Range(minPitch, maxPitch);
+                audioSource.PlayOneShot(dialogueClip);
+                lastPlayTime = Time.time;
+            }
+
+            yield return new WaitForSeconds(delay); // Keep text speed the same
         }
 
         SetButtonActive();
@@ -94,6 +113,9 @@ public class EthanScript : MonoBehaviour
         Button3Text.text = sentence3;
         SetButtonFalse();
 
+        float lastPlayTime = 0f;
+        float minPlayInterval = 0.15f; // Adjust this value to control the minimum time between sounds
+
         DialogueText.text = "";
         foreach (char letter in DialogueSetence)
         {
@@ -105,9 +127,17 @@ public class EthanScript : MonoBehaviour
             }
 
             DialogueText.text += letter;
-            yield return new WaitForSeconds(delay);
-        }
 
+            // Play sound only if enough time has passed since last sound
+            if (Time.time - lastPlayTime >= minPlayInterval)
+            {
+                audioSource.pitch = Random.Range(minPitch, maxPitch);
+                audioSource.PlayOneShot(dialogueClip);
+                lastPlayTime = Time.time;
+            }
+
+            yield return new WaitForSeconds(delay); // Keep text speed the same
+        }
         Button1.SetActive(true);
         SkipButton.SetActive(false); // No more skipping
     }
@@ -120,6 +150,9 @@ public class EthanScript : MonoBehaviour
         Button3Text.text = sentence3;
         SetButtonFalse();
 
+        float lastPlayTime = 0f;
+        float minPlayInterval = 0.15f; // Adjust this value to control the minimum time between sounds
+
         DialogueText.text = "";
         foreach (char letter in DialogueSetence)
         {
@@ -131,7 +164,16 @@ public class EthanScript : MonoBehaviour
             }
 
             DialogueText.text += letter;
-            yield return new WaitForSeconds(delay);
+
+            // Play sound only if enough time has passed since last sound
+            if (Time.time - lastPlayTime >= minPlayInterval)
+            {
+                audioSource.pitch = Random.Range(minPitch, maxPitch);
+                audioSource.PlayOneShot(dialogueClip);
+                lastPlayTime = Time.time;
+            }
+
+            yield return new WaitForSeconds(delay); // Keep text speed the same
         }
 
         Button2.SetActive(true);
@@ -146,6 +188,9 @@ public class EthanScript : MonoBehaviour
         Button3Text.text = sentence3;
         SetButtonFalse();
 
+        float lastPlayTime = 0f;
+        float minPlayInterval = 0.15f; // Adjust this value to control the minimum time between sounds
+
         DialogueText.text = "";
         foreach (char letter in DialogueSetence)
         {
@@ -157,7 +202,16 @@ public class EthanScript : MonoBehaviour
             }
 
             DialogueText.text += letter;
-            yield return new WaitForSeconds(delay);
+
+            // Play sound only if enough time has passed since last sound
+            if (Time.time - lastPlayTime >= minPlayInterval)
+            {
+                audioSource.pitch = Random.Range(minPitch, maxPitch);
+                audioSource.PlayOneShot(dialogueClip);
+                lastPlayTime = Time.time;
+            }
+
+            yield return new WaitForSeconds(delay); // Keep text speed the same
         }
 
         Button3.SetActive(true);
@@ -323,6 +377,9 @@ public class EthanScript : MonoBehaviour
         Button3Text.text = sentence3;
         SetButtonFalse();
 
+        float lastPlayTime = 0f;
+        float minPlayInterval = 0.15f; // Adjust this value to control the minimum time between sounds
+
         DialogueText.text = "";
         foreach (char letter in DialogueSetence)
         {
@@ -334,7 +391,16 @@ public class EthanScript : MonoBehaviour
             }
 
             DialogueText.text += letter;
-            yield return new WaitForSeconds(delay);
+
+            // Play sound only if enough time has passed since last sound
+            if (Time.time - lastPlayTime >= minPlayInterval)
+            {
+                audioSource.pitch = Random.Range(minPitch, maxPitch);
+                audioSource.PlayOneShot(dialogueClip);
+                lastPlayTime = Time.time;
+            }
+
+            yield return new WaitForSeconds(delay); // Keep text speed the same
         }
         SkipButton.SetActive(false); // No more skipping
     }

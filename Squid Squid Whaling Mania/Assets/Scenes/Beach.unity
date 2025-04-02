@@ -2581,8 +2581,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.499
-  m_Pitch: 1
+  m_Volume: 0.179
+  m_Pitch: 0.41
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -4899,7 +4899,7 @@ MonoBehaviour:
   Button1: {fileID: 317323750}
   Button2: {fileID: 537657415}
   Button3: {fileID: 1460722250}
-  delay: 0.1
+  delay: 0.05
   DialogueText: {fileID: 575225627}
   Button1Text: {fileID: 1444884789}
   Button2Text: {fileID: 139206227}

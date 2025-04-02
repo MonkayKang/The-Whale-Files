@@ -118,6 +118,9 @@ public class DialogueREWORK : MonoBehaviour
         Button3Text.text = sentence3;
         SetButtonFalse();
 
+        float lastPlayTime = 0f;
+        float minPlayInterval = 0.15f; // Adjust this value to control the minimum time between sounds
+
         DialogueText.text = "";
         foreach (char letter in DialogueSetence)
         {
@@ -129,6 +132,15 @@ public class DialogueREWORK : MonoBehaviour
             }
 
             DialogueText.text += letter;
+
+            // Play sound only if enough time has passed since last sound
+            if (Time.time - lastPlayTime >= minPlayInterval)
+            {
+                audioSource.pitch = Random.Range(minPitch, maxPitch);
+                audioSource.PlayOneShot(dialogueClip);
+                lastPlayTime = Time.time;
+            }
+
             yield return new WaitForSeconds(delay);
         }
 
@@ -143,6 +155,9 @@ public class DialogueREWORK : MonoBehaviour
         Button2Text.text = sentence2;
         Button3Text.text = sentence3;
         SetButtonFalse();
+
+        float lastPlayTime = 0f;
+        float minPlayInterval = 0.15f; // Adjust this value to control the minimum time between sounds
 
         DialogueText.text = "";
         foreach (char letter in DialogueSetence)
@@ -159,6 +174,15 @@ public class DialogueREWORK : MonoBehaviour
         }
 
         Button2.SetActive(true);
+
+        // Play sound only if enough time has passed since last sound
+        if (Time.time - lastPlayTime >= minPlayInterval)
+        {
+            audioSource.pitch = Random.Range(minPitch, maxPitch);
+            audioSource.PlayOneShot(dialogueClip);
+            lastPlayTime = Time.time;
+        }
+
         SkipButton.SetActive(false); // No more skipping
     }
 
@@ -169,6 +193,9 @@ public class DialogueREWORK : MonoBehaviour
         Button2Text.text = sentence2;
         Button3Text.text = sentence3;
         SetButtonFalse();
+
+        float lastPlayTime = 0f;
+        float minPlayInterval = 0.15f; // Adjust this value to control the minimum time between sounds
 
         DialogueText.text = "";
         foreach (char letter in DialogueSetence)
@@ -181,6 +208,15 @@ public class DialogueREWORK : MonoBehaviour
             }
 
             DialogueText.text += letter;
+
+            // Play sound only if enough time has passed since last sound
+            if (Time.time - lastPlayTime >= minPlayInterval)
+            {
+                audioSource.pitch = Random.Range(minPitch, maxPitch);
+                audioSource.PlayOneShot(dialogueClip);
+                lastPlayTime = Time.time;
+            }
+
             yield return new WaitForSeconds(delay);
         }
 
@@ -343,6 +379,9 @@ public class DialogueREWORK : MonoBehaviour
         Button3Text.text = sentence3;
         SetButtonFalse();
 
+        float lastPlayTime = 0f;
+        float minPlayInterval = 0.15f; // Adjust this value to control the minimum time between sounds
+
         DialogueText.text = "";
         foreach (char letter in DialogueSetence)
         {
@@ -354,6 +393,14 @@ public class DialogueREWORK : MonoBehaviour
             }
 
             DialogueText.text += letter;
+
+            // Play sound only if enough time has passed since last sound
+            if (Time.time - lastPlayTime >= minPlayInterval)
+            {
+                audioSource.pitch = Random.Range(minPitch, maxPitch);
+                audioSource.PlayOneShot(dialogueClip);
+                lastPlayTime = Time.time;
+            }
             yield return new WaitForSeconds(delay);
         }
         SkipButton.SetActive(false); // No more skipping
