@@ -322,7 +322,8 @@ public class NoahScript : MonoBehaviour
     IEnumerator EndDialogue()
     {
 
-        yield return StartCoroutine(TypeSentence()); // type response
+        yield return StartCoroutine(EndSentence()); // end response
+        yield return new WaitForSeconds(2f);
         box2d.enabled = true;
         DialoguePanel.SetActive(false);
 
@@ -336,5 +337,30 @@ public class NoahScript : MonoBehaviour
     public void Disable()
     {
         SkipButton.SetActive(false);
+    }
+
+    IEnumerator EndSentence()
+    {
+        SkipButton.SetActive(true); // No more skipping
+
+        Button1Text.text = sentence1;
+        Button2Text.text = sentence2;
+        Button3Text.text = sentence3;
+        SetButtonFalse();
+
+        DialogueText.text = "";
+        foreach (char letter in DialogueSetence)
+        {
+            if (isSkipping)
+            {
+                DialogueText.text = DialogueSetence; // Instantly complete text
+                isSkipping = false; // Reset flag
+                break;
+            }
+
+            DialogueText.text += letter;
+            yield return new WaitForSeconds(delay);
+        }
+        SkipButton.SetActive(false); // No more skipping
     }
 }
