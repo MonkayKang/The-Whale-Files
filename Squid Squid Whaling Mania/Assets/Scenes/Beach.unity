@@ -3612,8 +3612,8 @@ GameObject:
   - component: {fileID: 1324344624}
   - component: {fileID: 1324344623}
   - component: {fileID: 1324344622}
-  - component: {fileID: 1324344626}
   - component: {fileID: 1324344625}
+  - component: {fileID: 1324344626}
   m_Layer: 0
   m_Name: OilFeather
   m_TagString: Untagged
@@ -3760,10 +3760,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1324344621}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 982a5eeaab548c14f96db55a06749e32, type: 3}
+  m_Script: {fileID: 11500000, guid: 8dc745913588c9b4d98af40009830a8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clueData: {fileID: 11400000, guid: f8ef4a53c2b6e9a438b058101efe34d5, type: 2}
+  factData: {fileID: 11400000, guid: 8fd095a197c851743a00d95aa0e90a05, type: 2}
 --- !u!1 &1388565402
 GameObject:
   m_ObjectHideFlags: 0
@@ -5291,8 +5291,8 @@ GameObject:
   - component: {fileID: 1981615558}
   - component: {fileID: 1981615557}
   - component: {fileID: 1981615556}
-  - component: {fileID: 1981615560}
   - component: {fileID: 1981615559}
+  - component: {fileID: 1981615560}
   m_Layer: 0
   m_Name: BrokenCoral
   m_TagString: Untagged
@@ -5439,10 +5439,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1981615555}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 982a5eeaab548c14f96db55a06749e32, type: 3}
+  m_Script: {fileID: 11500000, guid: 8dc745913588c9b4d98af40009830a8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clueData: {fileID: 11400000, guid: e6bfe9849893be646a74ec23b47616af, type: 2}
+  factData: {fileID: 11400000, guid: b26a1ac86826e5542b9d5e03a0f7bdf4, type: 2}
 --- !u!1 &2054070204
 GameObject:
   m_ObjectHideFlags: 0

@@ -2538,8 +2538,8 @@ GameObject:
   - component: {fileID: 1054107151}
   - component: {fileID: 1054107150}
   - component: {fileID: 1054107149}
-  - component: {fileID: 1054107153}
   - component: {fileID: 1054107152}
+  - component: {fileID: 1054107153}
   m_Layer: 0
   m_Name: BrokenPipe
   m_TagString: Untagged
@@ -2686,10 +2686,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1054107148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 982a5eeaab548c14f96db55a06749e32, type: 3}
+  m_Script: {fileID: 11500000, guid: 8dc745913588c9b4d98af40009830a8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clueData: {fileID: 11400000, guid: 84ce616a3d0f9a44aa55365b1638a4d1, type: 2}
+  factData: {fileID: 11400000, guid: 1005cdca87880614a98f09ae2ad6c0dd, type: 2}
 --- !u!1 &1107200486
 GameObject:
   m_ObjectHideFlags: 0
@@ -3988,8 +3988,8 @@ GameObject:
   - component: {fileID: 1842862491}
   - component: {fileID: 1842862490}
   - component: {fileID: 1842862489}
-  - component: {fileID: 1842862493}
   - component: {fileID: 1842862492}
+  - component: {fileID: 1842862493}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -4136,10 +4136,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1842862488}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 982a5eeaab548c14f96db55a06749e32, type: 3}
+  m_Script: {fileID: 11500000, guid: 8dc745913588c9b4d98af40009830a8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clueData: {fileID: 11400000, guid: a32417813b851b9489196305e488f977, type: 2}
+  factData: {fileID: 11400000, guid: 6a4b253055192f34ebc40f649098c9d4, type: 2}
 --- !u!1 &1932702938
 GameObject:
   m_ObjectHideFlags: 0
