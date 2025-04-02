@@ -36,6 +36,14 @@ public class DialogueREWORK : MonoBehaviour
     private int TimesSpoken1;
     private int TimesSpoken2;
 
+    // Audio 
+    public AudioSource audioSource; // Assign in Inspector
+    public AudioClip dialogueClip; // Assign the sound effect
+    public float minPitch = 0.8f;
+    public float maxPitch = 1.2f;
+
+
+
     private void Start()
     {
         box2d = GetComponent<BoxCollider2D>();
@@ -45,6 +53,7 @@ public class DialogueREWORK : MonoBehaviour
         Button1Text.text = sentence1;
         Button2Text.text = sentence2;
         Button3Text.text = sentence3;
+        audioSource.clip = dialogueClip;
     }
 
 
@@ -70,6 +79,9 @@ public class DialogueREWORK : MonoBehaviour
         Button3Text.text = sentence3;
         SetButtonFalse();
 
+        float lastPlayTime = 0f;
+        float minPlayInterval = 0.15f; // Adjust this value to control the minimum time between sounds
+
         DialogueText.text = "";
         foreach (char letter in DialogueSetence)
         {
@@ -81,12 +93,22 @@ public class DialogueREWORK : MonoBehaviour
             }
 
             DialogueText.text += letter;
-            yield return new WaitForSeconds(delay);
+
+            // Play sound only if enough time has passed since last sound
+            if (Time.time - lastPlayTime >= minPlayInterval)
+            {
+                audioSource.pitch = Random.Range(minPitch, maxPitch);
+                audioSource.PlayOneShot(dialogueClip);
+                lastPlayTime = Time.time;
+            }
+
+            yield return new WaitForSeconds(delay); // Keep text speed the same
         }
 
         SetButtonActive();
         SkipButton.SetActive(false); // No more skipping
     }
+
 
     IEnumerator TypeSentence1()
     {
