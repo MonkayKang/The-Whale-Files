@@ -11,7 +11,9 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private float maxEvidence;
     private float currentEvidence;
     public List<Clue> collectedClues = new List<Clue>();
-
+    public List<Fact> collectedFacts = new List<Fact>();
+    public List<NPCIntel> collectedDialogs = new List<NPCIntel>();
+    public List<string> objectives = new List<string>();
     public System.Action onEvidenceUpdated;
     public System.Action onInventoryUpdated;
 
@@ -23,10 +25,13 @@ public class InventoryManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             SceneManager.sceneLoaded += OnSceneLoaded;
 
-#if UNITY_EDITOR
-            PlayerPrefs.DeleteAll(); // Force reset in Editor Play Mode
-            PlayerPrefs.Save();
-#endif
+            // Reset progress only if this is the first launch of the session
+            if (!PlayerPrefs.HasKey("SessionStarted"))
+            {
+                PlayerPrefs.DeleteAll();
+                PlayerPrefs.SetInt("SessionStarted", 1);
+                PlayerPrefs.Save();
+            }
 
             LoadCollectedClues();
         }
@@ -67,8 +72,23 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
-
-    private void SaveCollectedClues()
+    public void AddFact(Fact fact)
+    {
+        if (!collectedFacts.Contains(fact))
+        {
+            collectedFacts.Add(fact);
+            onInventoryUpdated?.Invoke();
+        }
+    }
+    public void AddDialog(NPCIntel dialog)
+    {
+        if (!collectedDialogs.Contains(dialog))
+        {
+            collectedDialogs.Add(dialog);
+            onInventoryUpdated?.Invoke();
+        }
+    }
+        private void SaveCollectedClues()
     {
         List<string> collectedIDs = new List<string>();
         foreach (Clue clue in collectedClues)
