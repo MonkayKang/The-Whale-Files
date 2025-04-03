@@ -5404,7 +5404,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &676033072
 RectTransform:
@@ -6242,7 +6242,7 @@ GameObject:
   - component: {fileID: 847742902}
   - component: {fileID: 847742901}
   m_Layer: 5
-  m_Name: Inventory Panel
+  m_Name: Clues
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7280,7 +7280,7 @@ GameObject:
   - component: {fileID: 937233721}
   - component: {fileID: 937233720}
   m_Layer: 5
-  m_Name: Objective Panel
+  m_Name: Objectives
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10014,7 +10014,7 @@ GameObject:
   - component: {fileID: 1339931019}
   - component: {fileID: 1339931018}
   m_Layer: 5
-  m_Name: Dialog Panel
+  m_Name: Dialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13009,9 +13009,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2047503683}
-        m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: ShowEvidence
+      - m_Target: {fileID: 1788286760}
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+        m_MethodName: CloseAllPanels
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15851,7 +15851,7 @@ GameObject:
   - component: {fileID: 2013544105}
   - component: {fileID: 2013544104}
   m_Layer: 5
-  m_Name: Fact Panel
+  m_Name: Facts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17044,6 +17044,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FactPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 4568394087577286268, guid: cd112384fc799e749a9e3bf84d90c37f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4755879104679430412, guid: cd112384fc799e749a9e3bf84d90c37f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -17123,6 +17127,14 @@ PrefabInstance:
     - target: {fileID: 4755879104679430412, guid: cd112384fc799e749a9e3bf84d90c37f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360008901947639528, guid: cd112384fc799e749a9e3bf84d90c37f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360008901947639528, guid: cd112384fc799e749a9e3bf84d90c37f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17221,6 +17233,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObjectivePrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 9178299838372523279, guid: e35b2ccde9a36ae42a029920eb260b80, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17234,6 +17250,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 441030861}
     m_Modifications:
+    - target: {fileID: 2008516974339592440, guid: ceec60034643a3f4aa00c269ccff6a24, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2284905934583033430, guid: ceec60034643a3f4aa00c269ccff6a24, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -17317,6 +17337,10 @@ PrefabInstance:
     - target: {fileID: 7181901744359985057, guid: ceec60034643a3f4aa00c269ccff6a24, type: 3}
       propertyPath: m_Name
       value: DialogPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181901744359985057, guid: ceec60034643a3f4aa00c269ccff6a24, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
