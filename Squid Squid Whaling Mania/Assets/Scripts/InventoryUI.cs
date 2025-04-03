@@ -46,6 +46,13 @@ public class InventoryUI : MonoBehaviour
 
         hoverPanel.SetActive(false);
     }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            CloseAllPanels();
+        }
+    }
 
     private void ValidateReferences()
     {
@@ -129,20 +136,69 @@ public class InventoryUI : MonoBehaviour
     }
     private void UpdateFacts()
     {
+        Debug.Log($"Updating Facts UI | Total Facts: {InventoryManager.Instance.collectedFacts.Count}");
+
+        foreach (Transform child in factsContent)
+        {
+            Destroy(child.gameObject);
+        }
+
         foreach (Fact fact in InventoryManager.Instance.collectedFacts)
         {
-            GameObject factEntry = Instantiate(factPrefab, factsContent);  // Instantiate prefab for each fact
-            factEntry.GetComponent<Image>().sprite = fact.image;  // Set fact image
-            AddHoverEvents(factEntry, fact.description);  // Set up hover effect with description
+            Debug.Log($"Creating Fact Entry: {fact.factID}, Image: {(fact.image != null ? "Exists" : "NULL")}");
+
+            GameObject factEntry = Instantiate(factPrefab, factsContent);
+            Image factImage = factEntry.GetComponent<Image>();
+
+            if (factImage != null)
+            {
+                factImage.sprite = fact.image;
+                factImage.SetNativeSize(); // <-- Force the image to adjust to its sprite
+                factImage.enabled = false;
+                factImage.enabled = true;  // <-- Force Unity to refresh the UI
+                Debug.Log("Assigned Fact Image: " + factImage.sprite.name);
+                Debug.Log($"Fact Image Assigned: {fact.factID}");
+            }
+            else
+            {
+                Debug.LogError($"Fact Prefab is missing an Image component!");
+            }
+
+            AddHoverEvents(factEntry, fact.description);
         }
+
     }
     private void UpdateDialog()
     {
+        Debug.Log($"Updating Dialog UI | Total Dialogs: {InventoryManager.Instance.collectedDialogs.Count}");
+
+        foreach (Transform child in dialogContent)
+        {
+            Destroy(child.gameObject);
+        }
+
         foreach (NPCIntel dialog in InventoryManager.Instance.collectedDialogs)
         {
-            GameObject dialogEntry = Instantiate(dialogPrefab, dialogContent);  // Instantiate prefab for each dialog
-            dialogEntry.GetComponent<Image>().sprite = dialog.npcImage;  // Set NPC image
-            AddHoverEvents(dialogEntry, dialog.dialogText);  // Set up hover effect with dialog text
+            Debug.Log($"Creating Dialog Entry: {dialog.npcID}, Image: {(dialog.npcImage != null ? "Exists" : "NULL")}");
+
+            GameObject dialogEntry = Instantiate(dialogPrefab, dialogContent);
+            Image dialogImage = dialogEntry.GetComponent<Image>();
+
+            if (dialogImage != null)
+            {
+                dialogImage.sprite = dialog.npcImage;
+                dialogImage.SetNativeSize();
+                dialogImage.enabled = false;
+                dialogImage.enabled = true;
+                Debug.Log($"Dialog Image Assigned: {dialog.npcID}");
+            }
+            else
+            {
+                Debug.LogError($"Dialog Prefab is missing an Image component!");
+            }
+
+            AddHoverEvents(dialogEntry, dialog.dialogText);
+
         }
     }
     private void UpdateObjectives()
@@ -160,9 +216,30 @@ public class InventoryUI : MonoBehaviour
         dialogPanel.SetActive(panelName == "Dialog");
         objectivesPanel.SetActive(panelName == "Objectives");
 
-        if (panelName == "Facts") UpdateFacts();  // Update facts
-        if (panelName == "Dialog") UpdateDialog();  // Update dialogs
-        if (panelName == "Objectives") UpdateObjectives();  // Update objectives
+        Debug.Log($"Switching to panel: {panelName}");
+
+        if (panelName == "Facts")
+        {
+            Debug.Log("Updating Facts UI...");
+            UpdateFacts();
+        }
+        if (panelName == "Dialog")
+        {
+            Debug.Log("Updating Dialog UI...");
+            UpdateDialog();
+        }
+        if (panelName == "Objectives")
+        {
+            Debug.Log("Updating Objectives UI...");
+            UpdateObjectives();
+        }
     }
-   
+    public void CloseAllPanels()
+    {
+        cluesPanel.SetActive(false);
+        factsPanel.SetActive(false);
+        dialogPanel.SetActive(false);
+        objectivesPanel.SetActive(false);
+    }
+
 }

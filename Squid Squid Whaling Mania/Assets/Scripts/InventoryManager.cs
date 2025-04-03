@@ -77,7 +77,12 @@ public class InventoryManager : MonoBehaviour
         if (!collectedFacts.Contains(fact))
         {
             collectedFacts.Add(fact);
+            Debug.Log($"Added Fact: {fact.factID} | Total Facts: {collectedFacts.Count}");
             onInventoryUpdated?.Invoke();
+        }
+        else
+        {
+            Debug.Log($"Fact already collected: {fact.factID}");
         }
     }
     public void AddDialog(NPCIntel dialog)
@@ -85,7 +90,12 @@ public class InventoryManager : MonoBehaviour
         if (!collectedDialogs.Contains(dialog))
         {
             collectedDialogs.Add(dialog);
+            Debug.Log($"Added Dialog: {dialog.npcID} | Total Dialogs: {collectedDialogs.Count}");
             onInventoryUpdated?.Invoke();
+        }
+        else
+        {
+            Debug.Log($"Dialog already collected: {dialog.npcID}");
         }
     }
         private void SaveCollectedClues()
