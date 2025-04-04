@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hideout.unity
     guid: 55141b4164365814792941e7e657d919
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 1fc6f7b521c87cd4c8ffeb17ee0a9331
   m_configObjects: {}

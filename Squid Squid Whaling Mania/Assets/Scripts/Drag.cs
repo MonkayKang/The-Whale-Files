@@ -16,6 +16,8 @@ public class Drag : MonoBehaviour
 
     public GameObject[] gameObjects; // makes it easier.
 
+    public GameObject Npc;
+
     private Vector3 GetMouseWorldPosition()
     {
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -42,6 +44,7 @@ public class Drag : MonoBehaviour
         {
             foreach (GameObject obj in gameObjects)
             {
+                Npc.SetActive(false);
                 obj.SetActive(true);
             }
         }
@@ -79,6 +82,7 @@ public class Drag : MonoBehaviour
     IEnumerator EndClue()
     {
         yield return new WaitForSeconds(1f);
+        Npc.SetActive(true);
         foreach (GameObject obj in gameObjects)
         {
             Destroy(obj);

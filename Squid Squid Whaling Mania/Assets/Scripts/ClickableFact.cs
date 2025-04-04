@@ -19,6 +19,7 @@ public class ClickableFact : MonoBehaviour
         if (!InventoryManager.Instance.collectedFacts.Contains(factData))
         {
             InventoryManager.Instance.AddFact(factData);
+            UI.FactsCollected += 1; // Add a fact counter
             gameObject.SetActive(false);  // Hide the object after it’s collected
         }
     }

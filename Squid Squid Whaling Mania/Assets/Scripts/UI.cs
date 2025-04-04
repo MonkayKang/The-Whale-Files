@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,6 +14,10 @@ public class UI : MonoBehaviour
     public GameObject Inventory;
 
     public static int bloodSamples = 0;
+
+    // Text Counter
+    public TextMeshProUGUI FactsCounterText;
+    public static int FactsCollected;
     void Start()
     {
         targetImage.fillAmount = fillAmount;
@@ -32,6 +37,13 @@ public class UI : MonoBehaviour
         if (fillAmount < 0f)
         {
             fillAmount = 0f;
+        }
+
+        FactsCounterText.text = "Facts Collected: " + FactsCollected.ToString() + " / 8"; // Write out the counter
+
+        if (FactsCollected >= 8)
+        {
+            SceneManager.LoadScene("GameOver");
         }
     }
 
