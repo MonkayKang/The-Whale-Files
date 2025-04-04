@@ -2779,9 +2779,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 866821304}
   textMeshPro: {fileID: 540399491}
-  Description: Old sewage systems can leak dirty water into places where whales live. 
-    Greenpeace Canada wants better pipes and stronger rules to keep the water clean
-    and safe  for marine life.
+  Description: Old sweage pipes tends to leak unwanted fluids into the ocean
   offset: {x: 10, y: 10}
 --- !u!114 &1054107153
 MonoBehaviour:
@@ -4233,9 +4231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 866821304}
   textMeshPro: {fileID: 540399491}
-  Description: Greenpeace sometimes uses hidden cameras to catch illegal whaling. 
-    Recording these actions helps fight for justice and push for stronger global
-    rules.
+  Description: Greenpeace sometimes use cameras to spot illegal activites
   offset: {x: 10, y: 10}
 --- !u!114 &1842862493
 MonoBehaviour:
@@ -4663,8 +4659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 866821304}
   textMeshPro: {fileID: 540399491}
-  Description: GreenPeace Canada supports non-invasive whale tracking and research
-    to understand migration patters and ensure better protection measures.
+  Description: Non-Invasive whale tracking is often used to track whale migrations
   offset: {x: 10, y: 10}
 --- !u!61 &2113164927
 BoxCollider2D:
