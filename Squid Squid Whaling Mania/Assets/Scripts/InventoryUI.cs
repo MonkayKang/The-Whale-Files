@@ -52,6 +52,11 @@ public class InventoryUI : MonoBehaviour
         {
             CloseAllPanels();
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ResetEvidenceMeter();
+        }
     }
 
     private void ValidateReferences()
@@ -133,6 +138,11 @@ public class InventoryUI : MonoBehaviour
     private void UpdateEvidenceMeter()
     {
         evidenceFillImage.fillAmount = InventoryManager.Instance.GetEvidence();
+    }
+
+    private void ResetEvidenceMeter()
+    {
+        evidenceFillImage.fillAmount = 0;
     }
     private void UpdateFacts()
     {

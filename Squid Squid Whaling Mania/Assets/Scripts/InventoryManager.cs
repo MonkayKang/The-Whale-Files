@@ -40,6 +40,14 @@ public class InventoryManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R)) 
+        {
+            ResetGameProgress();
+        }
+    }
     private void ResetGameProgress()
     {
         PlayerPrefs.DeleteKey("CollectedClues");
