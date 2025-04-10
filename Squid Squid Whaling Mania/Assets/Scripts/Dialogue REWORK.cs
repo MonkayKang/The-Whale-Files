@@ -287,7 +287,7 @@ public class DialogueREWORK : MonoBehaviour
         {
             if (TimesSpoken1 == 0)
             {
-                DialogueSetence = "*sides eye Leon up and down*";
+                DialogueSetence = "*sides eye Chris up and down*";
                 sentence2 = "What does Greenpeace do when they find these ships?";
                 TimesSpoken1++;
             }
