@@ -2403,8 +2403,8 @@ Transform:
   m_GameObject: {fileID: 427579799}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.39, y: -3.23, z: -1765.7545}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.22, y: -2.25, z: -1765.7545}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1017528069}
@@ -2445,7 +2445,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.9475, y: 3.7475}
+    oldSize: {x: 1.394, y: 3.54}
     newSize: {x: 7.79, y: 14.99}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2495,7 +2495,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 30dabc04bdaedeb4fbb1c13b33279a84, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0b0f85e5c4e4245469f95823b6d480af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7547,7 +7547,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1793007609}
   smoothRate: 1.5
-  offset: {x: 0, y: 3, z: 0}
+  offset: {x: 0, y: 1.9, z: 0}
 --- !u!1 &968393591
 GameObject:
   m_ObjectHideFlags: 0
@@ -14328,9 +14328,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7f3d9496d426ce140ae6edc10bad9515, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 2}
@@ -14348,8 +14348,8 @@ Transform:
   m_GameObject: {fileID: 1793007606}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.51, y: -3.74, z: 12.273116}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -2.6512, y: -2.0755, z: 12.273116}
+  m_LocalScale: {x: 2.2321048, y: 1.9404749, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -14386,8 +14386,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: 0.023798708, y: 0.022812918}
+  m_Size: {x: 0.7620129, y: 2.757388}
   m_Direction: 0
 --- !u!50 &1793007611
 Rigidbody2D:
