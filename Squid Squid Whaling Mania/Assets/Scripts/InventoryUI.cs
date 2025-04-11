@@ -27,6 +27,9 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private GameObject dialogPanel;
     [SerializeField] private GameObject objectivesPanel;
 
+    public AudioSource source;
+    public AudioClip clip;
+
     private void Start()
     {
         ValidateReferences();
@@ -48,8 +51,18 @@ public class InventoryUI : MonoBehaviour
     }
     void Update()
     {
+        if (source == null)
+        {
+            GameObject player = GameObject.Find("Player");
+            if (player != null)
+            {
+                source = player.GetComponent<AudioSource>();
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.M))
         {
+            source.PlayOneShot(clip);
             CloseAllPanels();
         }
 

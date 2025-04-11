@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ClickableFact : MonoBehaviour
 {
+    public AudioClip clip;
+    public AudioSource source;
     public Fact factData;
 
     private void Start()
@@ -16,6 +18,7 @@ public class ClickableFact : MonoBehaviour
 
     private void OnMouseDown()
     {
+        source.PlayOneShot(clip);
         if (!InventoryManager.Instance.collectedFacts.Contains(factData))
         {
             InventoryManager.Instance.AddFact(factData);

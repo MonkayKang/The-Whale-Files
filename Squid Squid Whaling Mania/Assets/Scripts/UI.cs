@@ -39,10 +39,11 @@ public class UI : MonoBehaviour
             fillAmount = 0f;
         }
 
-        FactsCounterText.text = "Facts Collected: " + FactsCollected.ToString() + " / 8"; // Write out the counter
+        FactsCounterText.text = "Facts Collected: " + FactsCollected.ToString() + " / 9"; // Write out the counter
 
-        if (FactsCollected >= 8)
+        if (FactsCollected >= 9)
         {
+            
             SceneManager.LoadScene("GameOver");
         }
     }
