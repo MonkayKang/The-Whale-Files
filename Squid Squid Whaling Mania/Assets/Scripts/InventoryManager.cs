@@ -48,7 +48,7 @@ public class InventoryManager : MonoBehaviour
             ResetGameProgress();
         }
     }
-    private void ResetGameProgress()
+    public void ResetGameProgress()
     {
         PlayerPrefs.DeleteKey("CollectedClues");
         PlayerPrefs.DeleteKey("CurrentEvidence");
@@ -85,8 +85,15 @@ public class InventoryManager : MonoBehaviour
         if (!collectedFacts.Contains(fact))
         {
             collectedFacts.Add(fact);
+            currentEvidence += fact.evidenceValue;
             Debug.Log($"Added Fact: {fact.factID} | Total Facts: {collectedFacts.Count}");
+            SaveCollectedClues() ;
+            onEvidenceUpdated?.Invoke();
             onInventoryUpdated?.Invoke();
+            if (currentEvidence >= maxEvidence)
+            {
+                LoadNextScene();
+            }
         }
         else
         {

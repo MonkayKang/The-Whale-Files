@@ -17,3 +17,4 @@ MonoBehaviour:
   description: "Greenpeace sometimes uses hidden cameras to catch illegal whaling.
     \r\nRecording these actions helps fight for justice and push for stronger global
     rules."
+  evidenceValue: 7

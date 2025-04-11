@@ -16,3 +16,4 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 7ae76544ddb91764bbdf0e697542807c, type: 3}
   description: Single use plastic bottles have been found in Whales' stomach. GreenPeace
     is actively campaigning against it.
+  evidenceValue: 5
