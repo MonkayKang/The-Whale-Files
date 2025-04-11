@@ -8,4 +8,5 @@ public class Fact : ScriptableObject
     public string factID;
     public Sprite image;
     [TextArea] public string description;
+    public float evidenceValue;
 }

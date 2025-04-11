@@ -140,7 +140,7 @@ public class InventoryUI : MonoBehaviour
         evidenceFillImage.fillAmount = InventoryManager.Instance.GetEvidence();
     }
 
-    private void ResetEvidenceMeter()
+    public void ResetEvidenceMeter()
     {
         evidenceFillImage.fillAmount = 0;
     }
